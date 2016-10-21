@@ -21,6 +21,9 @@ $ gem install hg
 ## Usage
 
 ```ruby
+require 'hg'
+
+# basic usage
 hg = Hg::Hg.create do |hg|
   hg.headers :x, :y
   hg.body <<BODY
@@ -32,7 +35,9 @@ end
 
 hg.hash # => { x: [1,3,5], y: [2,4,6] }
 
+# convert to daru's dataframe
 require 'daru'
+
 hg.daru_dataframe # equivalent to Daru::DataFrame.new(hg.hash)
 ```
 
